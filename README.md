@@ -25,4 +25,4 @@ beautiful svg file.
 
 This can for example be used to display latex in markdown:
 
-![](https://detext.haskai.de/tex2svg/?latexB64=KFxhbHBoYSArIFxiZXRhKV4y)
+![](https://detext.haskai.de/tex2svg/?latexB64=KFxhbHBoYSArIFxiZXRhKV4y&scale=3)
