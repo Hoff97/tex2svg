@@ -1,0 +1,1 @@
+docker build -t hoff97/tex2svg .
