@@ -3,8 +3,5 @@ function generateSVG() {
 
     var img = document.getElementById('img');
 
-    img.src = 'https://detext.haskai.de/tex2svg/?latex=' + latex;
-
-    img.width = '300';
-    img.height = 'auto';
+    img.src = 'https://detext.haskai.de/tex2svg/?latexB64=' + btoa(latex);
 }
