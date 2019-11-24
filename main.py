@@ -1,3 +1,4 @@
+import base64
 import os
 import uuid
 
@@ -12,6 +13,9 @@ template_file.close()
 @app.route('/')
 def hello():
     latex = request.args.get('latex')
+    if latex == None:
+        latex = request.args.get('latexB64')
+        latex = base64.b64decode(latex).decode("utf-8") 
     if latex == None:
         return abort(400)
 
