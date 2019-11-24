@@ -1,6 +1,8 @@
 import base64
+import io
 import os
 import uuid
+import xml.etree.ElementTree as ET
 
 from flask import Flask, Response, abort, escape, request
 
@@ -11,16 +13,32 @@ template = template_file.read()
 template_file.close()
 
 @app.route('/')
-def hello():
+def get_svg():
     latex = request.args.get('latex')
     if latex == None:
         latex = request.args.get('latexB64')
-        latex = base64.b64decode(latex).decode("utf-8") 
+        latex = base64.b64decode(latex).decode("utf-8")
     if latex == None:
         return abort(400)
 
     req_id = uuid.uuid4()
     svg = gen_svg(latex, req_id)
+
+    scale = request.args.get('scale')
+    if scale != None:
+        scale = float(scale)
+
+        svg_f = io.StringIO(svg)
+        root = ET.parse(svg_f).getroot()
+
+        width = float(root.get('width').replace('pt', ''))
+        height = float(root.get('height').replace('pt', ''))
+
+        root.set('width', str(width*scale) + 'pt')
+        root.set('height', str(height*scale) + 'pt')
+
+        svg = ET.tostring(root, encoding='utf8', method='xml')
+
     return Response(svg, mimetype='image/svg+xml')
 
 def gen_svg(latex, req_id):
