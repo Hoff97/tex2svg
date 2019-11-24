@@ -22,3 +22,7 @@ $ docker run -p 0.0.0.0:8000:8000 hoff97/tex2svg
 
 After that you can access http://localhost:8000/?latex=\alpha and get back a
 beautiful svg file.
+
+This can for example be used to display latex in markdown:
+
+![](https://detext.haskai.de/tex2svg/?latexB64=KFxhbHBoYSArIFxiZXRhKV4y)
