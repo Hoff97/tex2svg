@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Tex2SVG</title>
@@ -7,14 +8,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="main.css">
   <script type="text/javascript" src="main.js"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+    integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
 </head>
+
 <body>
   <div class="center">
-        <h1>Latex to SVG</h1>
-        <input type="text" id="latex"/>
-        <button type="button" onclick="generateSVG()">Generate</button><br/><br/>
+    <h1>Latex to SVG</h1>
 
-        <img src="" id="img"/>
+    <div class="pure-g">
+      <div class="pure-u-1-2 1-box">
+        <form class="pure-form">
+          <fieldset>
+            <legend>Type your latex code</legend>
+
+            <input type="text" placeholder="Latec code" id="latex">
+            <button type="button"
+                class="pure-button pure-button-primary"
+                onclick="generateSVG()">
+              Generate
+            </button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="pure-u-1-2" id="result" style="visibility: hidden;">
+        <div class="l-box">
+          <div class="border pointer" onclick="copyToClipBoard()">
+            Url:
+            <font id="url">Abc</font>
+          </div>
+          <a href="" id="img-href"><img src="" id="img" /></a>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
+
 </html>
