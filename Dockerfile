@@ -5,6 +5,7 @@ RUN apt-get update
 RUN apt-get -y install software-properties-common
 RUN apt-get update
 RUN apt-get -y install texlive
+RUN apt-get -y install texlive-latex-extra
 RUN apt-get -y install latexmk
 RUN apt-get -y install texlive-extra-utils
 RUN apt-get -y install pdf2svg
