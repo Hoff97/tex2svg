@@ -3,8 +3,8 @@ FROM python:3.7-slim
 
 RUN apt-get update
 RUN apt-get -y install software-properties-common
-RUN apt-get update
-RUN apt-get -y install texlive-full
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get -y install texlive
 RUN apt-get -y install latexmk
 RUN apt-get -y install texlive-extra-utils
 RUN apt-get -y install pdf2svg

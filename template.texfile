@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{amsmath,amssymb,amstext,amsfonts,upgreek}
+\usepackage{amsmath,amssymb,amstext,amsfonts}
 \begin{document}
 \thispagestyle{empty}
 ${{{cmd}}}$
